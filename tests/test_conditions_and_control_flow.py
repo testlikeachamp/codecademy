@@ -1,4 +1,3 @@
-# from ..func.conditionals_and_control_flow import greater_less_equal_5
 from codecademy.conditionals_and_control_flow import greater_less_equal_5
 
 
