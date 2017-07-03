@@ -1,4 +1,5 @@
-# codecademy
+codecademy
+----------
 
 .. image:: https://travis-ci.org/testlikeachamp/codecademy.svg?branch=master
     :target: https://travis-ci.org/testlikeachamp/codecademy
