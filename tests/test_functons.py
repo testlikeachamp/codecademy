@@ -1,10 +1,11 @@
+import sys
+
+import pytest
+
 from codecademy.functions import one_good_turn
 from codecademy.functions import square
 from codecademy.functions import deserves_another
 from codecademy.functions import biggest_number
-
-import pytest, sys
-
 
 @pytest.mark.parametrize("test_square_input,test_square_expected", [
     (-10, 100),
@@ -28,6 +29,7 @@ def test_square(test_square_input, test_square_expected):
 def test_one_good_turn(test_input, expected):
     assert one_good_turn(test_input) == expected
 
+
 @pytest.mark.parametrize("test_square_expected,test_deserves_another_expected", [
     (-100, -97),
     (-1, 2),
@@ -37,7 +39,6 @@ def test_one_good_turn(test_input, expected):
 ])
 def test_deserves_another(test_square_expected, test_deserves_another_expected):
     assert deserves_another(test_square_expected) == test_deserves_another_expected
-
 
 
 def test_biggest_number():

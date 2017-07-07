@@ -2,7 +2,7 @@
 def square(n):
     """This function returns the square of a number."""
     squared = n ** 2
-    print "%d squared is %d." % (n, squared)
+    print ("%d squared is %d." % (n, squared))
     return squared
 
 square(10)
@@ -21,18 +21,18 @@ def deserves_another(n):
 # 4. Function ex-12
 def biggest_number(*args):
     """"Returns the biggest of arguments."""
-    print max(args)
-    return max(args)
+    print (max(args))
+    return (max(args))
 
 def smallest_number(*args):
     """"Returns the smaller of arguments."""
-    print min(args)
-    return min(args)
+    print (min(args))
+    return (min(args))
 
 def distance_from_zero(arg):
     """"Return the absolute value of a arguments."""
-    print abs(arg)
-    return abs(arg)
+    print (abs(arg))
+    return (abs(arg))
 
 biggest_number(-10, -5, 5, 10)
 smallest_number(-10, -5, 5, 10)
