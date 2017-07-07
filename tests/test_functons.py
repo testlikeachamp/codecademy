@@ -2,10 +2,14 @@ import sys
 
 import pytest
 
-from codecademy.functions import one_good_turn
-from codecademy.functions import square
-from codecademy.functions import deserves_another
 from codecademy.functions import biggest_number
+from codecademy.functions import deserves_another
+from codecademy.functions import distance_from_zero
+from codecademy.functions import distance_from_zero_type
+from codecademy.functions import one_good_turn
+from codecademy.functions import smallest_number
+from codecademy.functions import square
+
 
 @pytest.mark.parametrize("test_square_input,test_square_expected", [
     (-10, 100),
@@ -45,4 +49,19 @@ def test_biggest_number():
     assert biggest_number(1,2,3,4,5) == 5
 
 
+def test_smallest_number():
+    assert smallest_number(-1,0,1,2,3) == -1
 
+
+def test_distance_from_zeror():
+    assert distance_from_zero(-2) == 2
+
+
+@pytest.mark.parametrize("distance_from_zero_type_input,distance_from_zero_type_expected", [
+    (-10, 10),
+    (-1, 1),
+    (0, 0),
+    ("a", "Nope"),
+])
+def test_square(distance_from_zero_type_input, distance_from_zero_type_expected):
+    assert distance_from_zero_type(distance_from_zero_type_input) == distance_from_zero_type_expected
