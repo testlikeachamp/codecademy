@@ -47,3 +47,63 @@ def distance_from_zero_type(arg):
     else:
         return "Nope"
 # END 4. Function ex-19
+
+# 4. Function ex-1
+def tax(bill):
+    """Adds 8% tax to a restaurant bill."""
+    bill *= 1.08
+    print("With tax: %f" % bill)
+    return bill
+
+
+def tip(bill):
+    """Adds 15% tip to a restaurant bill."""
+    bill *= 1.15
+    print("With tip: %f" % bill)
+    return bill
+
+
+meal_cost = 100
+meal_with_tax = tax(meal_cost)
+meal_with_tip = tip(meal_with_tax)
+# END 4. Function ex-1
+
+# 4. Function ex-4
+def power(base, exponent):  # Add your parameters here!
+    """It should take two arguments, a base and an exponent,
+     and raise the first to the power of the second."""
+    result = base ** exponent
+    print("%d to the power of %d is %d." % (base, exponent, result))
+
+power(37,4)  # Add your arguments here!
+# END 4. Function ex-4
+
+# 4. Function ex-6
+def cube(number):
+    """Return the cube of the argument"""
+    return number**3
+
+
+def by_three(number):
+    """Return the argument is divisible by 3, by_three should call cube(number)
+     and return its result. Otherwise, by_three should return False"""
+    if number % 3 == 0:
+        return cube(number)
+    else:
+        return False
+# END 4. Function ex-6
+
+# 4. Function ex-17
+def shut_down(s):
+    """Return the message depends of shut_down() argument"""
+    if s == 'yes':
+        return "Shutting down"
+    elif s == 'no':
+        return "Shutdown aborted"
+    else:
+        return "Sorry"
+
+shut_down('yes')
+shut_down('no')
+shut_down('blabla')
+# END 4. Function ex-17
