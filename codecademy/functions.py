@@ -62,10 +62,6 @@ def tip(bill):
     print("With tip: %f" % bill)
     return bill
 
-
-meal_cost = 100
-meal_with_tax = tax(meal_cost)
-meal_with_tip = tip(meal_with_tax)
 # END 4. Function ex-1
 
 # 4. Function ex-4
@@ -75,7 +71,6 @@ def power(base, exponent):  # Add your parameters here!
     result = base ** exponent
     print("%d to the power of %d is %d." % (base, exponent, result))
 
-power(37,4)  # Add your arguments here!
 # END 4. Function ex-4
 
 # 4. Function ex-6
@@ -103,7 +98,4 @@ def shut_down(s):
     else:
         return "Sorry"
 
-shut_down('yes')
-shut_down('no')
-shut_down('blabla')
 # END 4. Function ex-17
