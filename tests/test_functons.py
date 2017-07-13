@@ -12,56 +12,88 @@ from codecademy.functions import square
 
 
 @pytest.mark.parametrize("test_square_input,test_square_expected", [
+    (-(3037000499**2-1), -sys.maxsize-1),
+    (-(3037000499**2), -sys.maxsize),
     (-10, 100),
     (-1, 1),
     (0, 0),
     (1, 1),
-    (2, 4),
     (10, 100),
+    (3037000499**2-1, sys.maxsize-1),
+    (3037000499**2, sys.maxsize)
 ])
 def test_square(test_square_input, test_square_expected):
     assert square(test_square_input) == test_square_expected
 
 
 @pytest.mark.parametrize("test_input,expected", [
-    (-100, -99),
+    (-sys.maxsize,  -sys.maxsize+1),
+    (-sys.maxsize-1,  -sys.maxsize),
+    (-3037000499, -3037000498),
     (-1, 0),
     (0, 1),
     (1, 2),
-    (100, 101),
+    (3037000499, 3037000500),
+    (sys.maxsize-1, sys.maxsize),
+    (sys.maxsize, sys.maxsize+1)
 ])
 def test_one_good_turn(test_input, expected):
     assert one_good_turn(test_input) == expected
 
 
 @pytest.mark.parametrize("test_square_expected,test_deserves_another_expected", [
-    (-100, -97),
+    (-sys.maxsize,  -sys.maxsize+3),
+    (-sys.maxsize-1,  -sys.maxsize+2),
+    (-3037000499, -3037000496),
     (-1, 2),
     (0, 3),
     (1, 4),
-    (100, 103),
+    (3037000499, 3037000502),
+    (sys.maxsize-1, sys.maxsize+2),
+    (sys.maxsize, sys.maxsize+3)
 ])
 def test_deserves_another(test_square_expected, test_deserves_another_expected):
     assert deserves_another(test_square_expected) == test_deserves_another_expected
 
 
 def test_biggest_number():
-    assert biggest_number(1,2,3,4,5) == 5
+    assert biggest_number(-sys.maxsize, -sys.maxsize-1, -3037000499, -1, 0, 1, 3037000499,
+                          sys.maxsize-1, sys.maxsize) == 9223372036854775807
+
 
 
 def test_smallest_number():
-    assert smallest_number(-1,0,1,2,3) == -1
+    assert smallest_number(-sys.maxsize, -sys.maxsize-1, -3037000499, -1, 0, 1, 3037000499,
+                          sys.maxsize-1, sys.maxsize) == -9223372036854775808
 
 
-def test_distance_from_zeror():
-    assert distance_from_zero(-2) == 2
+@pytest.mark.parametrize("test_distance_from_zero_input,test_distance_from_zero_expected", [
+    (-sys.maxsize,  sys.maxsize),
+    (-sys.maxsize-1,  sys.maxsize+1),
+    (-3037000499, 3037000499),
+    (-1, 1),
+    (0, 0),
+    (1, 1),
+    (3037000499, 3037000499),
+    (sys.maxsize-1, sys.maxsize-1),
+    (sys.maxsize, sys.maxsize)
+])
+def test_distance_from_zero(test_distance_from_zero_input, test_distance_from_zero_expected):
+    assert distance_from_zero(test_distance_from_zero_input) == test_distance_from_zero_expected
 
 
 @pytest.mark.parametrize("distance_from_zero_type_input,distance_from_zero_type_expected", [
-    (-10, 10),
+    (-sys.maxsize,  sys.maxsize),
+    (-sys.maxsize-1,  sys.maxsize+1),
+    (-3037000499, 3037000499),
     (-1, 1),
     (0, 0),
+    (1, 1),
+    (3037000499, 3037000499),
+    (sys.maxsize-1, sys.maxsize-1),
+    (sys.maxsize, sys.maxsize),
     ("a", "Nope"),
+    (" ", "Nope")
 ])
 def test_square(distance_from_zero_type_input, distance_from_zero_type_expected):
     assert distance_from_zero_type(distance_from_zero_type_input) == distance_from_zero_type_expected

@@ -4,8 +4,6 @@ def square(n):
     squared = n ** 2
     print("%d squared is %d." % (n, squared))
     return squared
-
-square(10)
 # END 4. Function ex-3
 
 # 4. Function ex-5
@@ -33,10 +31,6 @@ def distance_from_zero(arg):
     """"Return the absolute value of a arguments."""
     print(abs(arg))
     return (abs(arg))
-
-biggest_number(-10, -5, 5, 10)
-smallest_number(-10, -5, 5, 10)
-distance_from_zero(-10)
 # END 4. Function ex-12
 
 # 4. Function ex-19
