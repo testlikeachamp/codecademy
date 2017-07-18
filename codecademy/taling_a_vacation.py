@@ -24,6 +24,7 @@ def plane_ride_cost(city):
 def rental_car_cost(days):
     """"car price with a discount for more days
 """
+    assert type(days) == int and days > 0, "{} was not int or positive integer > 0".format(days)
     cost = 40 * days
     if days >= 7:
         cost = cost - 50
@@ -34,4 +35,6 @@ def rental_car_cost(days):
 
 def trip_cost(city, days, spending_money):
     """calculate total sum"""
+    assert type(spending_money) == int and spending_money > 0, "{} was not int or positive integer > 0".format(spending_money)
     return hotel_cost(days) + plane_ride_cost(city) + rental_car_cost(days) + spending_money
+

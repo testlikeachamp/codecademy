@@ -18,12 +18,12 @@ def test_hotel_cost(test_hotel_cost_input, test_hotel_cost_expected):
     assert hotel_cost(test_hotel_cost_input) == test_hotel_cost_expected
 
 
-def test_hotel_cost_negative():
+@pytest.mark.parametrize("test_hotel_cost_negative_input", [1, -1, "blah", False, None])
+def test_hotel_cost_negative(test_hotel_cost_negative_input):
     try:
-        hotel_cost('abcd')
+        hotel_cost(test_hotel_cost_negative_input)
     except AssertionError as e:
-        assert str(e) == "abcd was not int or positive integer > 0"
-
+        assert str(e) == str(test_hotel_cost_negative_input) + " was not int or positive integer > 0"
 
 
 @pytest.mark.parametrize("test_plane_ride_cost_input,test_plane_ride_cost_expected", [
@@ -44,7 +44,6 @@ def test_plane_ride_cost_negative():
 
 
 @pytest.mark.parametrize("test_rental_car_cost_input,test_rental_car_cost_expected", [
-    (0, 0),
     (1, 40),
     (2, 80),
     (3, 40*3-20),
@@ -57,6 +56,14 @@ def test_plane_ride_cost_negative():
 ])
 def test_rental_car_cost(test_rental_car_cost_input, test_rental_car_cost_expected):
     assert rental_car_cost(test_rental_car_cost_input) == test_rental_car_cost_expected
+
+
+@pytest.mark.parametrize("test_rental_car_cost_negative_input", [-1, 0, "blah", False, None])
+def test_rental_car_cost_negative(test_rental_car_cost_negative_input):
+    try:
+        hotel_cost(test_rental_car_cost_negative_input)
+    except AssertionError as e:
+        assert str(e) == str(test_rental_car_cost_negative_input) + " was not int or positive integer > 0"
 
 
 
