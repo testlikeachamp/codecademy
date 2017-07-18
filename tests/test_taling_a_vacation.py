@@ -22,7 +22,8 @@ def test_hotel_cost_negative():
     try:
         hotel_cost('abcd')
     except AssertionError as e:
-        print(e)
+        assert str(e) == "abcd was not int or positive integer > 0"
+
 
 
 @pytest.mark.parametrize("test_plane_ride_cost_input,test_plane_ride_cost_expected", [
@@ -38,8 +39,8 @@ def test_plane_ride_cost(test_plane_ride_cost_input, test_plane_ride_cost_expect
 def test_plane_ride_cost_negative():
     try:
         plane_ride_cost('sochi')
-    except ValueError as kaka:
-        print(kaka)
+    except ValueError as e:
+        assert str(e) == "We Don't fly to the city sochi"
 
 
 @pytest.mark.parametrize("test_rental_car_cost_input,test_rental_car_cost_expected", [
