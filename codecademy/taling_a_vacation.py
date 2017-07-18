@@ -2,7 +2,9 @@
 def hotel_cost(nights):
     """this function calculates the rate for the number of days
 """
+    assert type(nights) == int and nights > 0, "{} was not int or positive integer > 0".format(nights)
     return 140 * nights
+
 
 def plane_ride_cost(city):
     """compares the names of cities and returns the price for 1 day
@@ -15,6 +17,9 @@ def plane_ride_cost(city):
         return 222
     elif city == "Los Angeles":
         return 475
+    else:
+        raise ValueError("We Don't fly to the city {}".format(city))
+
 
 def rental_car_cost(days):
     """"car price with a discount for more days
@@ -25,6 +30,7 @@ def rental_car_cost(days):
     elif days >= 3:
         cost = cost - 20
     return cost
+
 
 def trip_cost(city, days, spending_money):
     """calculate total sum"""
