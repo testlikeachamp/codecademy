@@ -37,10 +37,10 @@ def distance_from_zero(arg):
 # 4. Function ex-19
 def distance_from_zero_type(arg):
     """Depending on the type of argument returned absolute value or 'Nope'"""
-    if type(arg) == int or type(arg) == float or type(arg) == long:
-        return abs(arg)
-    else:
+    if type(arg) == bool or type(arg) == str or arg is None:
         return "Nope"
+    else:
+        return abs(arg)
 # END 4. Function ex-19
 
 # 4. Function ex-1
