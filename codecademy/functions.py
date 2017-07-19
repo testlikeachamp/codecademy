@@ -1,6 +1,7 @@
 # 4. Function ex-3
 def square(n):
     """This function returns the square of a number."""
+    assert type(n) == int or type(n) == long, "{} was not int".format()
     squared = n ** 2
     print("%d squared is %d." % (n, squared))
     return squared
@@ -36,7 +37,7 @@ def distance_from_zero(arg):
 # 4. Function ex-19
 def distance_from_zero_type(arg):
     """Depending on the type of argument returned absolute value or 'Nope'"""
-    if type(arg) == int or type(arg) == float:
+    if type(arg) == int or type(arg) == float or type(arg) == long:
         return abs(arg)
     else:
         return "Nope"
