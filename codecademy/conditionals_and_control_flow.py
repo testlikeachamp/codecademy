@@ -4,7 +4,7 @@ def greater_less_equal_5(answer):
     :param answer: a number to be compared with 5
     :return: int, 1 if answer > 5, -1 if answer < 5, 0 otherwise
     """
-    assert type(answer) != str or type(answer) != bool or type(answer) is not None, "{} was not int".format(answer)
+    assert not isinstance(answer, (str, bool)) and answer is not None, "{} was not int or float".format(answer)
     if answer > 5:
         return 1
     elif answer < 5:

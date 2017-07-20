@@ -1,7 +1,12 @@
+import sys
+
+if sys.version_info > (3,):
+    long = int
+
 # 4. Function ex-3
 def square(n):
     """This function returns the square of a number."""
-    assert type(n) == int or type(n) == long, "{} was not int".format()
+    assert isinstance(n, (int, long)), "{} was not int or long".format()
     squared = n ** 2
     print("%d squared is %d." % (n, squared))
     return squared
