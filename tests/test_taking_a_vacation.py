@@ -2,10 +2,10 @@ import sys
 
 import pytest
 
-from codecademy.taling_a_vacation import hotel_cost
-from codecademy.taling_a_vacation import plane_ride_cost
-from codecademy.taling_a_vacation import rental_car_cost
-from codecademy.taling_a_vacation import trip_cost
+from codecademy.taking_a_vacation import hotel_cost
+from codecademy.taking_a_vacation import plane_ride_cost
+from codecademy.taking_a_vacation import rental_car_cost
+from codecademy.taking_a_vacation import trip_cost
 
 @pytest.mark.parametrize("test_hotel_cost_input,test_hotel_cost_expected", [
     (1, 140),
