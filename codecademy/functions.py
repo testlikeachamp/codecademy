@@ -1,11 +1,15 @@
+import sys
+
+if sys.version_info > (3,):
+    long = int
+
 # 4. Function ex-3
 def square(n):
     """This function returns the square of a number."""
+    assert isinstance(n, (int, long)), "{} was not int or long".format()
     squared = n ** 2
     print("%d squared is %d." % (n, squared))
     return squared
-
-square(10)
 # END 4. Function ex-3
 
 # 4. Function ex-5
@@ -33,19 +37,15 @@ def distance_from_zero(arg):
     """"Return the absolute value of a arguments."""
     print(abs(arg))
     return (abs(arg))
-
-biggest_number(-10, -5, 5, 10)
-smallest_number(-10, -5, 5, 10)
-distance_from_zero(-10)
 # END 4. Function ex-12
 
 # 4. Function ex-19
 def distance_from_zero_type(arg):
     """Depending on the type of argument returned absolute value or 'Nope'"""
-    if type(arg) == int or type(arg) == float:
-        return abs(arg)
-    else:
+    if type(arg) == bool or type(arg) == str or arg is None:
         return "Nope"
+    else:
+        return abs(arg)
 # END 4. Function ex-19
 
 # 4. Function ex-1
