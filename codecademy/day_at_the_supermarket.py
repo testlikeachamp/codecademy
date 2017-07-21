@@ -17,16 +17,13 @@ prices = {
 
 # Write your code below!
 def compute_bill(food):
-    # max_stock = Counter(food)
-
-    assert type(food) == list, "{} was not list type".format(food)
-    for item in food:
-        if item not in stock:
-            assert False, "{} product was not in the list of stock".format(food[item])
+    assert isinstance(food, (list, tuple, set)), "{} error enter type".format(food)
     total = 0
     for item in food:
+        assert item in stock, "{} error enter type".format(food)
         if stock[item] > 0:
             total += prices[item]
             stock[item] -= 1
-        # elif stock[item] < max_stock[item]:
+        else:
+            print(item + " out off stock")
     return total
