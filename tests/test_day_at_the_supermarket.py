@@ -17,7 +17,7 @@ def test_compute_bill(test_compute_bill_input, test_compute_bill_expected):
 
 
 @pytest.mark.parametrize("test_compute_bil_negative_input", [[], [0, 1, 3, False, None], ["orange", "pear"],
-                                                             ["orange", "pear", "not in stock"],
+                                                             ["orange", "pear", "potato"],
                                                              ["banana", "banana", "orange", "pear", "apple"],
                                                              0, False, True, None])
 def test_compute_bill_negative(test_compute_bil_negative_input):

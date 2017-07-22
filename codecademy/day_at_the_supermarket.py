@@ -20,10 +20,12 @@ def compute_bill(food):
     assert isinstance(food, (list, tuple, set)), "{} error enter type".format(food)
     total = 0
     for item in food:
-        assert item in stock, "{} error enter type".format(food)
-        if stock[item] > 0:
+        if item not in stock:
+            print(str(item) + " not in price")
+        elif stock[item] > 0:
             total += prices[item]
             stock[item] -= 1
         else:
-            print(item + " out off stock")
+            print(str(item) + " out of stock")
+    print("total: " + str(total))
     return total
