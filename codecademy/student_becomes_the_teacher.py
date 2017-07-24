@@ -30,7 +30,6 @@ def get_average(student):
     assert isinstance(student, dict), "{} Passed the wrong data type".format(student)
     for key in student:
         assert key in tyler, "{} Please check student key name".format(student)
-        # print(tyler[key])
         homework = average(student["homework"])
         quizzes = average(student["quizzes"])
         tests = average(student["tests"])
