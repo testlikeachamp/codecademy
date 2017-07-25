@@ -12,6 +12,9 @@ from codecademy.functions import square
 from codecademy.functions import tax
 from codecademy.functions import tip
 from codecademy.functions import power
+from codecademy.functions import cube
+from codecademy.functions import by_three
+from codecademy.functions import shut_down
 
 
 @pytest.mark.parametrize("test_square_input,test_square_expected", [
@@ -143,3 +146,52 @@ def test_tip(test_input_tip, expected_tip):
 @pytest.mark.parametrize("test_input_exponent", [-100, -3, -1, 0, 1, 3, 100])
 def test_power(test_input_base, test_input_exponent):
     power(test_input_base, test_input_exponent)
+
+
+@pytest.mark.parametrize("test_input_cube, expected_cube", [
+    (-100, -1000000),
+    (-3, -27),
+    (-2.5, -15.625),
+    (-1, -1),
+    (0, 0),
+    (1, 1),
+    (2.5, 15.625),
+    (3, 27),
+    (100, 1000000)
+])
+def test_cube(test_input_cube, expected_cube):
+    assert cube(test_input_cube) == expected_cube
+
+
+@pytest.mark.parametrize("test_input_by_three, expected_by_three", [
+    (-100, False),
+    (-3, -27),
+    (-2.5, False),
+    (-1, False),
+    (0, 0),
+    (1, False),
+    (2.5, False),
+    (3, 27),
+    (100, False)
+])
+def test_by_three(test_input_by_three, expected_by_three):
+    assert by_three(test_input_by_three) == expected_by_three
+
+
+@pytest.mark.parametrize("test_input_shut_down, expected_shut_down", [
+    ('yes', 'Shutting down'),
+    ('no', 'Shutdown aborted'),
+    ('Yes', 'Shutting down'),
+    ('NO', 'Shutdown aborted'),
+    ('yES', 'Shutting down'),
+    (-1, 'Sorry'),
+    (0, 'Sorry'),
+    (1, 'Sorry'),
+    ('', 'Sorry'),
+    (True, 'Sorry'),
+    ('anything', 'Sorry'),
+    (False, 'Sorry'),
+    ([1, 2, 3], 'Sorry')
+])
+def test_shut_down(test_input_shut_down, expected_shut_down):
+    assert shut_down(test_input_shut_down) == expected_shut_down

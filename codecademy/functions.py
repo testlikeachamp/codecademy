@@ -103,16 +103,16 @@ def power(base, exponent):  # Add your parameters here!
 # 4. Function ex-6
 
 
-def cube(number):
+def cube(arg):
     """Return the cube of the argument"""
-    return number**3
+    return round(arg**3, 3)
 
 
-def by_three(number):
+def by_three(arg):
     """Return the argument is divisible by 3, by_three should call cube(number)
      and return its result. Otherwise, by_three should return False"""
-    if number % 3 == 0:
-        return cube(number)
+    if arg % 3 == 0:
+        return cube(arg)
     else:
         return False
 # END 4. Function ex-6
@@ -120,13 +120,16 @@ def by_three(number):
 # 4. Function ex-17
 
 
-def shut_down(s):
+def shut_down(arg):
     """Return the message depends of shut_down() argument"""
-    if s == 'yes':
-        return "Shutting down"
-    elif s == 'no':
-        return "Shutdown aborted"
+    if type(arg) != str:
+        return 'Sorry'
+    elif arg.lower() == 'yes':
+        return 'Shutting down'
+    elif arg.lower() == 'no':
+        return 'Shutdown aborted'
     else:
-        return "Sorry"
+        return 'Sorry'
+
 
 # END 4. Function ex-17
