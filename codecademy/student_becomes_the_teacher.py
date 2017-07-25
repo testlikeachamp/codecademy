@@ -29,7 +29,7 @@ def average(numbers):
 def get_average(student):
     assert isinstance(student, dict), "{} Passed the wrong data type".format(student)
     for key in student:
-        assert key in tyler, "{} Please check student key name".format(student)
+        assert key in tyler, "{} Please check student key name".format(key)
         homework = average(student["homework"])
         quizzes = average(student["quizzes"])
         tests = average(student["tests"])
@@ -37,6 +37,7 @@ def get_average(student):
 
 
 def get_letter_grade(score):
+    assert isinstance(score, (int, float)) and 0 <= score <= 100, "{} was not int or float".format(score)
     if score >= 90:
         return "A"
     elif score >= 80:
