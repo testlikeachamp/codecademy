@@ -68,13 +68,14 @@ keny_neg = {
 def test_get_average_negative(test_get_average_negative_input):
     try:
         get_average(test_get_average_negative_input)
-        assert False, "Expected an exception from get_average"
+        raise Exception, "Expected an exception from get_average"
     except AssertionError as e:
-        print("Passed the wrong data type")
-        assert str(e) == str(test_get_average_negative_input) + " Passed the wrong data type"
-    except KeyError as e:
-        print("Please check student key name")
-        assert str(e) == str(test_get_average_negative_input) + " Please check student key name"
+        if str(e) == str(test_get_average_negative_input) + " Please check student key name":
+            print("Please check student key name")
+            assert str(e) == str(test_get_average_negative_input) + " Please check student key name"
+        else:
+            print("Passed the wrong data type")
+            assert str(e) == str(test_get_average_negative_input) + " Passed the wrong data type"
 
 
 @pytest.mark.parametrize("input,expected", [
@@ -118,6 +119,6 @@ def test_get_letter_grade(input, expected):
 def test_get_letter_grade_negative(input):
     try:
         get_letter_grade(input)
-        assert False, "Expected an exception from get_letter_grade"
+        raise Exception, "Expected an exception from get_letter_grade"
     except AssertionError as e:
         assert str(e) == str(input) + " was not int or float"
