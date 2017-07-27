@@ -27,9 +27,11 @@ def average(numbers):
 
 
 def get_average(student):
-    assert type(student) == dict, "{} Passed the wrong data type".format(student)
+    if type(student) != dict:
+        raise TypeError("{} Passed the wrong data type".format(student))
     for key in student:
-        assert set(student) == set(tyler), "{} Please check student key name".format(student)
+        if set(student) != set(tyler):
+            raise KeyError("{} Please check student key name".format(student))
         homework = average(student["homework"])
         quizzes = average(student["quizzes"])
         tests = average(student["tests"])
@@ -37,7 +39,7 @@ def get_average(student):
 
 
 def get_letter_grade(score):
-    assert type(score) in (float, int) and not isinstance(score, bool) and 0 <= score <= 100, "{} was not int or float".format(score)
+    assert type(score) in (float, int) and 0 <= score <= 100, "{} was not int or float".format(score)
     if score >= 90:
         return "A"
     elif score >= 80:
@@ -51,6 +53,8 @@ def get_letter_grade(score):
 
 
 def get_class_average(students):
+    if type(students) != list:
+        raise TypeError("{} Passed the wrong data type".format(students))
     result = []
     for student in students:
         result.append(get_average(student))
