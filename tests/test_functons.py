@@ -116,7 +116,7 @@ def test_distance_from_zero(test_distance_from_zero_input, test_distance_from_ze
     (True, "Nope"),
     (None, "Nope")
 ])
-def distance_from_zero_type(distance_from_zero_type_input, distance_from_zero_type_expected):
+def test_distance_from_zero_type(distance_from_zero_type_input, distance_from_zero_type_expected):
     assert distance_from_zero_type(distance_from_zero_type_input) == distance_from_zero_type_expected
 
 
