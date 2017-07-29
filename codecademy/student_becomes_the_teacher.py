@@ -31,7 +31,7 @@ def get_average(student):
         raise TypeError("{} Passed the wrong data type".format(student))
     for key in student:
         if set(student) != set(tyler):
-            raise KeyError("{} Please check student key name".format(student))
+            raise KeyError("Please check student key name")
         homework = average(student["homework"])
         quizzes = average(student["quizzes"])
         tests = average(student["tests"])
