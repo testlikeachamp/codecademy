@@ -6,6 +6,7 @@ from codecademy.practice_make_perfect import is_int
 from codecademy.practice_make_perfect import factorial
 from codecademy.practice_make_perfect import reverse
 from codecademy.practice_make_perfect import scrabble_score
+from codecademy.practice_make_perfect import count
 
 @pytest.mark.parametrize("input_val,expected", [
     (-sys.maxsize-2, True),
@@ -106,6 +107,7 @@ def test_reverse_negative(input_neg):
 
 # END reverse
 
+
 @pytest.mark.parametrize("input_val,expected", [
     ("a", 1),
     ("aa", 2),
@@ -137,4 +139,16 @@ def test_scrabble_score_negative(input_neg):
         assert str(e) == "Passed the wrong data type or key"
 
 
-# END scrabble_score
+@pytest.mark.parametrize("input_val2, expected", [
+    ("a", 1),
+    (False, 2),
+    (-1, 1),
+    (0, 1),
+    (1, 1),
+    ([1, 2, 3], 1),
+    (("test", 123), 1),
+    ({"some_key": 123}, 1),
+])
+def test_count(input_val2, expected):
+    assert count(["a", False, True, False, -1, 0, 1, [1, 2, 3], ("test", 123), {"some_key": 123}], input_val2) == expected
+# END count

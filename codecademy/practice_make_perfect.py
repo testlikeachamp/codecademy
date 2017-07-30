@@ -63,3 +63,25 @@ def scrabble_score(word):
 # END scrabble_score
 
 
+def count(sequence, item):
+    item = str(item)
+    j = 0
+    for i in sequence:
+        i = str(i)
+        if i == item:
+            j += 1
+
+    return j
+# END count
+
+
+def product(item_list):
+    assert isinstance(word, str) and len(word) > 0, "Passed the wrong data type or key"
+    j = 1
+    for i in item_list:
+        j *= i
+    return j
+# END product
+
+
+
