@@ -1,4 +1,5 @@
 import sys
+import math
 
 if sys.version_info > (3,):
     long = int
@@ -76,12 +77,29 @@ def count(sequence, item):
 
 
 def product(item_list):
-    assert isinstance(word, str) and len(word) > 0, "Passed the wrong data type or key"
+    assert isinstance(item_list, list), "Passed the wrong data type"
+    for item in item_list:
+        if type(item) != int:
+            raise AssertionError("Passed the wrong data type")
     j = 1
     for i in item_list:
         j *= i
     return j
 # END product
+
+
+def median(a):
+    assert isinstance(a, list), "Passed the wrong data type"
+    for item in a:
+        if type(item) != int:
+            raise AssertionError("Passed the wrong data type")
+    a = sorted(a)
+    b = len(a)
+    if b % 2 == 0:
+        return (a[len(a)//2] + a[(len(a)//2) - 1]) / 2.0
+    else:
+        return a[(len(a)-1)//2]
+# END median
 
 
 

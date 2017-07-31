@@ -7,6 +7,8 @@ from codecademy.practice_make_perfect import factorial
 from codecademy.practice_make_perfect import reverse
 from codecademy.practice_make_perfect import scrabble_score
 from codecademy.practice_make_perfect import count
+from codecademy.practice_make_perfect import product
+from codecademy.practice_make_perfect import median
 
 @pytest.mark.parametrize("input_val,expected", [
     (-sys.maxsize-2, True),
@@ -152,3 +154,66 @@ def test_scrabble_score_negative(input_neg):
 def test_count(input_val2, expected):
     assert count(["a", False, True, False, -1, 0, 1, [1, 2, 3], ("test", 123), {"some_key": 123}], input_val2) == expected
 # END count
+
+
+@pytest.mark.parametrize("input_val,expected", [
+    ([0], 0),
+    ([0, 1], 0),
+    ([1], 1),
+    ([1, 1], 1),
+    ([1, 2], 2),
+    ([1, 2, 3], 6),
+    ([-1, 1], -1),
+    ([-1, -1], 1),
+
+])
+def test_product(input_val, expected):
+    assert product(input_val) == expected
+
+
+@pytest.mark.parametrize("input_neg", [
+    None,
+    True,
+    False,
+    0,
+    1,
+    "some text",
+    ["a"],
+    [False, True, 1, 2, "some text"]
+])
+def test_product_negative(input_neg):
+    try:
+        product(input_neg)
+        raise Exception("Expected an exception from product")
+    except AssertionError as e:
+        assert str(e) == "Passed the wrong data type"
+
+
+@pytest.mark.parametrize("input_val,expected", [
+    ([0], 0),
+    ([0, 1, 0], 0),
+    ([5, 2, 4, 2], 3),
+    ([10, 0, 22], 10),
+    ([-1, 0, -2, -3], -1.5),
+])
+def test_median(input_val, expected):
+    assert median(input_val) == expected
+
+
+@pytest.mark.parametrize("input_neg", [
+    None,
+    True,
+    False,
+    0,
+    1,
+    "some text",
+    ["a"],
+    [False, True, 1, 2, "some text"]
+])
+def test_median_negative(input_neg):
+    try:
+        product(input_neg)
+        raise Exception("Expected an exception from product")
+    except AssertionError as e:
+        assert str(e) == "Passed the wrong data type"
+
