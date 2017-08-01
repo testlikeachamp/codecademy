@@ -10,6 +10,7 @@ from codecademy.practice_make_perfect import count
 from codecademy.practice_make_perfect import product
 from codecademy.practice_make_perfect import median
 
+
 @pytest.mark.parametrize("input_val,expected", [
     (-sys.maxsize-2, True),
     (-sys.maxsize-1,  True),
@@ -29,6 +30,7 @@ from codecademy.practice_make_perfect import median
     (1.6, True),
     (1.7, True),
     (1.9, True),
+    (-1.1, False),
 ])
 def test_is_int(input_val, expected):
     assert is_int(input_val) == expected
