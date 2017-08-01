@@ -91,8 +91,7 @@ def product(item_list):
 def median(a):
     assert isinstance(a, list), "Passed the wrong data type"
     for item in a:
-        if type(item) != int:
-            raise AssertionError("Passed the wrong data type")
+        assert isinstance(item, int), "Passed the wrong data type"
     a = sorted(a)
     b = len(a)
     if b % 2 == 0:
