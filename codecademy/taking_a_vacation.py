@@ -35,11 +35,15 @@ def rental_car_cost(days):
 
 def trip_cost(city, days, spending_money):
     """calculate total sum"""
-    assert type(spending_money) == int and spending_money > 0, "{} was not int or positive integer > 0".format(spending_money)
+    assert type(spending_money) == (int or float) and spending_money >= 0,\
+        "{} was not int or float or positive number >= 0".format(spending_money)
     return hotel_cost(days) + plane_ride_cost(city) + rental_car_cost(days) + spending_money
 
 
 def trip_cost_only(city, days):
     """calculate sum of hotel cost, plane ride cost and rental car only"""
     return hotel_cost(days) + plane_ride_cost(city) + rental_car_cost(days)
+
+print(trip_cost_only("Tampa", 7))
+# print(plane_ride_cost("sda"))
 
