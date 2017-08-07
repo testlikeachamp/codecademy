@@ -90,6 +90,7 @@ def test_factorial_negative(input_neg):
     ("az", "za"),
     ("za", "az"),
     ("z", "z"),
+    (u"aaz", u"zaa")
 ])
 def test_reverse(input_val, expected):
     assert reverse(input_val) == expected

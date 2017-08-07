@@ -3,6 +3,7 @@ import math
 
 if sys.version_info > (3,):
     long = int
+    unicode = str
 
 
 def is_int(x):
@@ -26,7 +27,7 @@ def factorial(x):
         return 1
     else:
         i = 1
-        for n in range(1, (x + 1)):
+        for n in range(1, x + 1):
             i = n * i
             print(i)
     return i
@@ -34,12 +35,12 @@ def factorial(x):
 
 
 def reverse(text):
-    assert isinstance(text, str), "{} passed the wrong data type".format(text)
+    assert isinstance(text, (str, unicode)), "{} passed the wrong data type".format(text)
     a = ""
     j = 0
     for i in range(len(text)):
         j = j - 1
-        a += (text[len(text) + j])
+        a += text[len(text) + j]
     return a
 # END reverse
 
