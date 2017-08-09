@@ -8,7 +8,7 @@ if sys.version_info > (3,):
 
 def is_int(x):
     # function compute an integer number or not, and return false or true
-    assert isinstance(x, (int, float, long)) and type(x) is not bool, "{} passed the wrong data type".format(x)
+    assert type(x) in (int, float, long), "{} passed the wrong data type".format(x)
     if x - round(x) > 0:
         return False
     else:
@@ -20,7 +20,7 @@ def is_int(x):
 
 
 def factorial(x):
-    assert isinstance(x, (int, float, long)) and type(x) is not bool, "{} passed the wrong data type".format(x)
+    assert type(x) in (int, float, long), "{} passed the wrong data type".format(x)
     x = abs(x)
     if x == 1 or x == 0:
         print(1)
@@ -45,18 +45,13 @@ def reverse(text):
 # END reverse
 
 
-score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
-         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3,
-         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1,
-         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4,
-         "x": 8, "z": 10}
-
-
 def scrabble_score(word):
-    assert isinstance(word, str) and len(word) > 0, "Passed the wrong data type or key"
-    for key in word:
-        if key not in set(score):
-            raise AssertionError("Passed the wrong data type or key")
+    score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
+             "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3,
+             "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1,
+             "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4,
+             "x": 8, "z": 10}
+    assert type(word) == str and set(word) <= set(score), "Passed the wrong data type or key"
     word = word.lower()
     total = 0
     for i in word:  # iterate over the string
@@ -80,8 +75,7 @@ def count(sequence, item):
 def product(item_list):
     assert isinstance(item_list, list), "Passed the wrong data type"
     for item in item_list:
-        if type(item) != int:
-            raise AssertionError("Passed the wrong data type")
+        assert type(item) == int, "Passed the wrong data type"
     j = 1
     for i in item_list:
         j *= i
