@@ -2,9 +2,7 @@ import sys
 
 import pytest
 
-from codecademy.exam_statistics import grades_sum
-from codecademy.exam_statistics import grades_average
-from codecademy.exam_statistics import grades_variance
+from codecademy.exam_statistics import grades_average, grades_sum, grades_variance
 
 
 @pytest.mark.parametrize("input_val,expected", [
