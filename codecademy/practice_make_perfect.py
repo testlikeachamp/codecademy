@@ -94,6 +94,3 @@ def median(a):
     else:
         return a[(len(a)-1)//2]
 # END median
-
-
-

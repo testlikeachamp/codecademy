@@ -2,13 +2,8 @@ import sys
 
 import pytest
 
-from codecademy.practice_make_perfect import is_int
-from codecademy.practice_make_perfect import factorial
-from codecademy.practice_make_perfect import reverse
-from codecademy.practice_make_perfect import scrabble_score
-from codecademy.practice_make_perfect import count
-from codecademy.practice_make_perfect import product
-from codecademy.practice_make_perfect import median
+
+from codecademy.practice_make_perfect import count, factorial, is_int, median, product, reverse, scrabble_score
 
 
 @pytest.mark.parametrize("input_val,expected", [
