@@ -1,14 +1,14 @@
-# Taking a vacation
+#  Taking a vacation
+
+
 def hotel_cost(nights):
-    """this function calculates the rate for the number of days
-"""
+    """this function calculates the rate for the number of days"""
     assert type(nights) == int and nights > 0, "{} was not int or positive integer > 0".format(nights)
     return 140 * nights
 
 
 def plane_ride_cost(city):
-    """compares the names of cities and returns the price for 1 day
-"""
+    """compares the names of cities and returns the price for 1 day"""
     if city == "Charlotte":
         return 183
     elif city == "Tampa":
@@ -22,8 +22,7 @@ def plane_ride_cost(city):
 
 
 def rental_car_cost(days):
-    """"car price with a discount for more days
-"""
+    """car price with a discount for more days"""
     assert type(days) == int and days > 0, "{} was not int or positive integer > 0".format(days)
     cost = 40 * days
     if days >= 7:
@@ -35,7 +34,7 @@ def rental_car_cost(days):
 
 def trip_cost(city, days, spending_money):
     """calculate total sum"""
-    assert type(spending_money) == (int or float) and spending_money >= 0,\
+    assert type(spending_money) in (int, float) and spending_money >= 0,\
         "{} was not int or float or positive number >= 0".format(spending_money)
     return hotel_cost(days) + plane_ride_cost(city) + rental_car_cost(days) + spending_money
 
@@ -43,7 +42,3 @@ def trip_cost(city, days, spending_money):
 def trip_cost_only(city, days):
     """calculate sum of hotel cost, plane ride cost and rental car only"""
     return hotel_cost(days) + plane_ride_cost(city) + rental_car_cost(days)
-
-print(trip_cost_only("Tampa", 7))
-# print(plane_ride_cost("sda"))
-

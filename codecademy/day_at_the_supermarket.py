@@ -32,10 +32,10 @@ def compute_bill(food):
 
 
 #  4 Lists + Functions
-"""The function counts str 'fizz' in the input list"""
 
 
 def fizz_count(x):
+    """The function counts str 'fizz' in the input list"""
     count = 0
     for item in x:
         if item == 'fizz':
@@ -43,30 +43,25 @@ def fizz_count(x):
     return count
 
 
-print(fizz_count(['fizz', 'blits', 'fizz']))
-
 #  11 Making a Purchase
-"""Calculate the sum of prices for fruit's list"""
 
 
 def compute_bill_11(food):
+    """Calculate the sum of prices for fruit's list"""
     total = 0
     for item in food:
         total += prices[item]
     return total
 
-print(compute_bill_11(['banana', 'apple', 'pear']))
 
 #  13 Let's check out
-"""Finalize A day at the supermarket"""
 
 
 def compute_bill_13(food):
+    """Finalize A day at the supermarket"""
     total = 0
     for item in food:
         if stock[item] > 0:
             total += prices[item]
             stock[item] -= 1
     return total
-
-print(compute_bill_13(['banana', 'apple', 'pear']))

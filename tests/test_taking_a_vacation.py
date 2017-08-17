@@ -77,10 +77,10 @@ def test_rental_car_cost_negative(input_nights):
 ])
 def test_trip_cost(input_city, input_days, input_spending_money, expected):
     try:
-        assert input_city == ("Charlotte" or "Tampa" or "Pittsburgh" or "Los Angeles")
+        assert input_city in ("Charlotte", "Tampa", "Pittsburgh", "Los Angeles")
         assert type(input_days) == int and input_days > 0,\
             "{} was not int or positive integer > 0".format(input_days)
-        assert type(input_spending_money) == (int or float) and input_spending_money >= 0,\
+        assert type(input_spending_money) in (int, float) and input_spending_money >= 0,\
             "{} was not int or positive integer > 0".format(input_spending_money)
         assert trip_cost(input_city, input_days, input_spending_money) == expected
     except AssertionError as e:
@@ -106,7 +106,7 @@ def test_trip_cost_negative(input_city, input_days, input_spending_money):
 ])
 def test_trip_cost_only(input_city, input_days, expected):
     try:
-        assert input_city == ("Charlotte" or "Tampa" or "Pittsburgh" or "Los Angeles")
+        assert input_city in ("Charlotte", "Tampa", "Pittsburgh", "Los Angeles")
         assert type(input_days) == int and input_days > 0,\
             "{} was not int or positive integer > 0".format(input_days)
         assert trip_cost_only(input_city, input_days) == expected
