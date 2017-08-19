@@ -29,13 +29,12 @@ def average(numbers):
 def get_average(student):
     if type(student) != dict:
         raise TypeError("{} Passed the wrong data type".format(student))
-    for key in student:
-        if set(student) != set(tyler):
-            raise KeyError("Please check student key name")
-        homework = average(student["homework"])
-        quizzes = average(student["quizzes"])
-        tests = average(student["tests"])
-        return 0.1 * homework + 0.2 * quizzes + 0.5 * tests
+    if set(student) != set(tyler):
+        raise AssertionError("Please check student key name")
+    homework = average(student["homework"])
+    quizzes = average(student["quizzes"])
+    tests = average(student["tests"])
+    return 0.1 * homework + 0.2 * quizzes + 0.5 * tests
 
 
 def get_letter_grade(score):
