@@ -76,15 +76,7 @@ def test_rental_car_cost_negative(input_nights):
     ("Los Angeles", 365, 100, 66225)
 ])
 def test_trip_cost(input_city, input_days, input_spending_money, expected):
-    try:
-        assert input_city in ("Charlotte", "Tampa", "Pittsburgh", "Los Angeles")
-        assert type(input_days) == int and input_days > 0,\
-            "{} was not int or positive integer > 0".format(input_days)
-        assert type(input_spending_money) in (int, float) and input_spending_money >= 0,\
-            "{} was not int or positive integer > 0".format(input_spending_money)
-        assert trip_cost(input_city, input_days, input_spending_money) == expected
-    except AssertionError as e:
-        print(e)
+    assert trip_cost(input_city, input_days, input_spending_money) == expected
 
 
 @pytest.mark.parametrize("input_spending_money", [-1, "blah", None, False])
@@ -95,7 +87,10 @@ def test_trip_cost_negative(input_city, input_days, input_spending_money):
         trip_cost(input_city, input_days, input_spending_money)
         assert False, "Expected an exception from trip_cost"
     except AssertionError as e:
-        print(e)
+        assert (str(e) == str(input_days) + " was not int or positive integer > 0")\
+               or str(e) == str(input_spending_money) + " was not int or float or positive number >= 0"
+    except ValueError as e:
+        assert str(e) == "We Don't fly to the city Sochi"
 
 
 @pytest.mark.parametrize("input_city, input_days, expected", [
@@ -105,20 +100,16 @@ def test_trip_cost_negative(input_city, input_days, input_spending_money):
     ("Los Angeles", 365, 66125)
 ])
 def test_trip_cost_only(input_city, input_days, expected):
-    try:
-        assert input_city in ("Charlotte", "Tampa", "Pittsburgh", "Los Angeles")
-        assert type(input_days) == int and input_days > 0,\
-            "{} was not int or positive integer > 0".format(input_days)
-        assert trip_cost_only(input_city, input_days) == expected
-    except AssertionError as e:
-        print(e)
+    assert trip_cost_only(input_city, input_days) == expected
 
 
 @pytest.mark.parametrize("input_days", [-1, "blah", False, None])
-@pytest.mark.parametrize("input_city", ["Sochi", "Tampa"])
+@pytest.mark.parametrize("input_city", ["Sochi"])
 def test_trip_cost_only_negative(input_city, input_days):
     try:
         trip_cost_only(input_city, input_days)
         assert False, "Expected an exception from trip_cost"
     except AssertionError as e:
-        print(e)
+        assert (str(e) == str(input_days) + " was not int or positive integer > 0")
+    except ValueError as e:
+        assert str(e) == "We Don't fly to the city Sochi"
