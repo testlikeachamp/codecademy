@@ -72,8 +72,8 @@ def test_get_average_negative(input_neg):
         raise Exception("Expected an exception from get_average")
     except TypeError as e:
             assert str(e) == "{} Passed the wrong data type".format(input_neg)
-    except KeyError as e:
-            assert str(e) == "'Please check student key name'"
+    except AssertionError as e:
+        assert str(e) == "Please check student key name"
 
 
 @pytest.mark.parametrize("input,expected", [
