@@ -36,6 +36,7 @@ def compute_bill(food):
 
 def fizz_count(x):
     """The function counts str 'fizz' in the input list"""
+    assert isinstance(x, list), "{} error enter type".format(x)
     count = 0
     for item in x:
         if item == 'fizz':
@@ -48,9 +49,13 @@ def fizz_count(x):
 
 def compute_bill_11(food):
     """Calculate the sum of prices for fruit's list"""
+    assert isinstance(food, (list, tuple, set)), "{} error enter type".format(food)
     total = 0
     for item in food:
-        total += prices[item]
+        try:
+            total += prices[item]
+        except KeyError as e:
+            print("The item {} is not in price-list".format(e))
     return total
 
 
