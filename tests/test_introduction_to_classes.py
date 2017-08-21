@@ -33,6 +33,10 @@ def test_Fruit_bite_it(bite_size, expected):
 
 
 @pytest.mark.parametrize("input_neg", [
+    0,
+    -0.1,
+    -1,
+    -100,
     None,
     True,
     False,
@@ -145,12 +149,9 @@ def test_display_cart_negative(input_neg):
 
 
 @pytest.mark.parametrize("test_angle1, test_angle2, test_angle3, expected", [
-    (0, 0, 180, True),
-    (1, 179, 0, True),
     (1, 1, 178, True),
     (59, 62, 59, True),
-    (-180, 180, 180, True),
-    (180, 1, 0, False)
+    (0.1, 1, 178.9, True),
 ])
 def test_check_angles(test_angle1, test_angle2, test_angle3, expected):
     check_angles = Triangle(test_angle1, test_angle2, test_angle3)
@@ -158,40 +159,42 @@ def test_check_angles(test_angle1, test_angle2, test_angle3, expected):
 
 
 @pytest.mark.parametrize("test_angle1", [
-    None,
     True,
+    None,
     False,
     "",
-    "A"
+    "A",
+    100000,
+    0,
+    -1,
+    -0.1
 ])
 @pytest.mark.parametrize("test_angle2", [
-    None,
     True,
+    None,
     False,
     "",
-    "A"
+    "A",
+    100000,
+    0,
+    -1,
+    -0.1
 ])
 @pytest.mark.parametrize("test_angle3", [
-    None,
     True,
+    None,
     False,
     "",
-    "A"
+    "A",
+    100000,
+    0,
+    -1,
+    -0.1
 ])
 def test_check_angles_neg(test_angle1, test_angle2, test_angle3):
     try:
         check_angles = Triangle(test_angle1, test_angle2, test_angle3)
         check_angles.check_angles()
-        raise Exception("Expected an exception from test_display_cart_negative")
+        raise Exception("Expected an exception from test_check_angles_neg")
     except AssertionError as e:
         assert str(e) == "Error type, please enter a valid value"
-
-
-
-
-
-
-
-
-
-

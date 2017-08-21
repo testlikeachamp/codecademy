@@ -57,7 +57,11 @@ class ReturningCustomer(Customer):
 
 class Triangle(object):
     def __init__(self, angle1, angle2, angle3):
-        assert type(angle1) == int and type(angle2) == int and type(angle3) == int, "Error type, please enter a valid value"
+        assert isinstance(angle1, (int, float)) and isinstance(angle2, (int, float)) and \
+               isinstance(angle3, (int, float)) and type(angle1 and angle2 and angle3) != bool, "Error type, please enter a valid value"
+
+        assert 0 < angle1 < 180 and 0 < angle2 < 180 and 0 < angle3 < 180, "Error type, please enter a valid value"
+
         self.angle1 = angle1
         self.angle2 = angle2
         self.angle3 = angle3
@@ -69,5 +73,3 @@ class Triangle(object):
             return True
         else:
             return False
-
-
