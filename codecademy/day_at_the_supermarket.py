@@ -1,12 +1,5 @@
 # from collections import Counter
 
-stock = {
-    "banana": 6,
-    "apple": 0,
-    "orange": 32,
-    "pear": 15
-}
-
 prices = {
     "banana": 4,
     "apple": 2,
@@ -14,9 +7,17 @@ prices = {
     "pear": 3
 }
 
-
 # Write your code below!
+
+
 def compute_bill(food):
+    stock = {
+        "banana": 6,
+        "apple": 0,
+        "orange": 32,
+        "pear": 15
+    }
+
     assert isinstance(food, (list, tuple, set)), "{} error enter type".format(food)
     total = 0
     for item in food:
@@ -64,9 +65,19 @@ def compute_bill_11(food):
 
 def compute_bill_13(food):
     """Finalize A day at the supermarket"""
+    stock = {
+        "banana": 6,
+        "apple": 0,
+        "orange": 32,
+        "pear": 15
+    }
+    assert isinstance(food, (list, tuple, set)), "{} error enter type".format(food)
     total = 0
     for item in food:
-        if stock[item] > 0:
-            total += prices[item]
-            stock[item] -= 1
+        try:
+            if stock[item] > 0:
+                total += prices[item]
+                stock[item] -= 1
+        except KeyError as e:
+            print("The item {} is not in price-list".format(e))
     return total
