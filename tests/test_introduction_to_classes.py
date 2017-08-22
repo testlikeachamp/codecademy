@@ -181,11 +181,39 @@ def test_check_angles(test_angle1, test_angle2, test_angle3, expected):
 ])
 def test_check_angles_neg(test_angle1, test_angle2, test_angle3):
     try:
-        check_angles = Triangle(test_angle1, test_angle2, test_angle3)
-        check_angles.check_angles()
+        Triangle(test_angle1, test_angle2, test_angle3)
         raise Exception("Expected an exception from test_check_angles_neg")
     except AssertionError as e:
         assert str(e) == "Error type, please enter a valid value"
+
+
+@pytest.mark.parametrize("test_angle1", [
+    180,
+    100000,
+    0,
+    -1,
+    -0.1
+])
+@pytest.mark.parametrize("test_angle2", [
+    180,
+    100000,
+    0,
+    -1,
+    -0.1
+])
+@pytest.mark.parametrize("test_angle3", [
+    180,
+    100000,
+    0,
+    -1,
+    -0.1
+])
+def test_check_angles_int_neg(test_angle1, test_angle2, test_angle3):
+    try:
+        Triangle(test_angle1, test_angle2, test_angle3)
+        raise Exception("Expected an exception from test_check_angles_neg")
+    except AssertionError as e:
+        assert str(e) == "Angles is not in the range (0, 180)"
 
 
 
