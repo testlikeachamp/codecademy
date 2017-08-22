@@ -59,9 +59,8 @@ class Triangle(object):
     def __init__(self, angle1, angle2, angle3):
         for a in (angle1, angle2, angle3):
             assert type(a) in (int, float), "Error type, please enter a valid value"
-
-        assert 0 < angle1 < 180 and 0 < angle2 < 180 and 0 < angle3 < 180, \
-            "Sum of given angles not equal to 180"
+            assert 0 < a < 180, "Given angles not in 0 < x < 180"
+        assert self.check_angles(), "Sum of given angles not equal to 180"
 
         self.angle1 = angle1
         self.angle2 = angle2
