@@ -6,9 +6,10 @@ from codecademy.student_becomes_the_teacher import average
 from codecademy.student_becomes_the_teacher import get_average
 from codecademy.student_becomes_the_teacher import get_letter_grade
 from codecademy.student_becomes_the_teacher import get_class_average
+from codecademy.student_becomes_the_teacher import average_5
 
 
-@pytest.mark.parametrize("input,expected", [
+@pytest.mark.parametrize("test_input,expected", [
     ([0], 0),
     ([1], 1),
     ([49], 49),
@@ -31,8 +32,8 @@ from codecademy.student_becomes_the_teacher import get_class_average
     ([33, 33, 33], 33.0),
     ([33, 33, 34], 33.33),
 ])
-def test_average(input, expected):
-    assert average(input) == expected
+def test_average(test_input, expected):
+    assert average(test_input) == expected
 
 
 keny = {
@@ -43,11 +44,11 @@ keny = {
 }
 
 
-@pytest.mark.parametrize("input,expected", [
+@pytest.mark.parametrize("test_input,expected", [
     (keny, 6.5)
 ])
-def test_get_average(input, expected):
-    assert get_average(input) == expected
+def test_get_average(test_input, expected):
+    assert get_average(test_input) == expected
 
 
 keny_neg = {
@@ -76,7 +77,7 @@ def test_get_average_negative(input_neg):
         assert str(e) == "Please check student key name"
 
 
-@pytest.mark.parametrize("input,expected", [
+@pytest.mark.parametrize("test_input,expected", [
     (0, "F"),
     (1, "F"),
     (29, "F"),
@@ -109,17 +110,17 @@ def test_get_average_negative(input_neg):
     (99, "A"),
     (100, "A"),
 ])
-def test_get_letter_grade(input, expected):
-    assert get_letter_grade(input) == expected
+def test_get_letter_grade(test_input, expected):
+    assert get_letter_grade(test_input) == expected
 
 
-@pytest.mark.parametrize("input", [-1, "blah", None, False])
-def test_get_letter_grade_negative(input):
+@pytest.mark.parametrize("test_input", [-1, "blah", None, False])
+def test_get_letter_grade_negative(test_input):
     try:
-        get_letter_grade(input)
+        get_letter_grade(test_input)
         raise Exception("Expected an exception from get_letter_grade")
     except AssertionError as e:
-        assert str(e) == str(input) + " was not int or float"
+        assert str(e) == str(test_input) + " was not int or float"
 
 
 Lloyd = {
@@ -142,11 +143,11 @@ Tyler = {
 }
 
 
-@pytest.mark.parametrize("input,expected", [
+@pytest.mark.parametrize("test_input,expected", [
     ([Lloyd, Alice, Tyler], 67.67),
 ])
-def test_get_class_average(input, expected):
-    assert get_class_average(input) == expected
+def test_get_class_average(test_input, expected):
+    assert get_class_average(test_input) == expected
 
 
 @pytest.mark.parametrize("input_neg", [
@@ -165,3 +166,50 @@ def test_get_class_average_negative(input_neg):
     except TypeError as e:
             assert str(e) == "{} Passed the wrong data type".format(input_neg)
 
+
+@pytest.mark.parametrize("test_input, expected", [
+    ([0], 0),
+    ([1], 1),
+    ([49], 49),
+    ([50], 50),
+    ([51], 51),
+    ([99], 99),
+    ([100], 100),
+    ([0, 0], 0),
+    ([0, 1], 0.5),
+    ([0, 49], 24.5),
+    ([25, 25], 25),
+    ([0, 51], 25.5),
+    ([99], 99),
+    ([100], 100),
+    ([0, 0, 0], 0.0),
+    ([0, 0, 1], 0.33),
+    ([0, 24, 25], 16.33),
+    ([0, 25, 25], 16.67),
+    ([0, 25, 26], 17.0),
+    ([33, 33, 33], 33.0),
+    ([33, 33, 34], 33.33)
+])
+def test_average_5(test_input, expected):
+    assert average_5(test_input) == expected
+
+
+@pytest.mark.parametrize("input_negative", [
+    None,
+    True,
+    False,
+    0,
+    1,
+    "",
+    "Test row",
+    {},
+    (),
+    ["B", 0]
+])
+def test_average_5_negative(input_negative):
+    try:
+        average_5(input_negative)
+    except AssertionError as e:
+        assert str(e) == "{} error type, please enter list of numbers".format(input_negative)
+    except TypeError as e:
+        assert str(e) == "{} some of element inside numbers is wrong (not int or float)".format(input_negative)
