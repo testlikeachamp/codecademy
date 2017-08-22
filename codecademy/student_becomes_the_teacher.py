@@ -69,6 +69,5 @@ def average_5(numbers):
     for num in numbers:
         if type(num) != (int or float):
             raise TypeError("{} some of element inside numbers is wrong (not int or float)".format(numbers))
-    total = sum(numbers)
-    total = float(total)
+    total = float(sum(numbers))
     return round(total/len(numbers), 2)

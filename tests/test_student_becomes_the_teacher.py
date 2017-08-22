@@ -209,6 +209,7 @@ def test_average_5(test_input, expected):
 def test_average_5_negative(input_negative):
     try:
         average_5(input_negative)
+        raise Exception("Expected an exception from average_5()")
     except AssertionError as e:
         assert str(e) == "{} error type, please enter list of numbers".format(input_negative)
     except TypeError as e:
