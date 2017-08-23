@@ -2,18 +2,21 @@ class Car(object):
     condition = "new"
 
     def __init__(self, model, color, mpg):
-        assert type(model) in (str, int) and type(color) == str and type(mpg) == int,\
-            "Invalid enter data type"
-
         self.model = model
         self.color = color
         self.mpg = mpg
 
-    def display_car(self, model, color, mpg):
-        return "This is a %s %s with %s MPG." % (model, color, mpg)
+        assert type(model) in (str, int) and type(color) == str and type(mpg) == int, \
+            "Invalid enter data type"
+        # assert self.display_car()
+        assert self.drive_car()
+
+    def display_car(self):
+        return "This is a %s %s with %s MPG." % (self.model, self.color, self.mpg)
 
     def drive_car(self):
         self.condition = "used"
+        assert type(self.condition) == str, "Invalid entering data type"
         return self.condition
 
 
