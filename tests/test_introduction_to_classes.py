@@ -216,4 +216,36 @@ def test_check_angles_int_neg(test_angle1, test_angle2, test_angle3):
         assert str(e) == "Angles is not in the range (0, 180)"
 
 
+@pytest.mark.parametrize("test_angle1", [
+    1,
+    60,
+    179,
+    1,
+    20,
+    55,
+])
+@pytest.mark.parametrize("test_angle2", [
+    1,
+    61,
+    179,
+    1,
+    20,
+    55,
+])
+@pytest.mark.parametrize("test_angle3", [
+    179,
+    61,
+    179,
+    1,
+    20,
+    55,
+])
+def test_check_angles_sum_neg(test_angle1, test_angle2, test_angle3):
+    try:
+        Triangle(test_angle1, test_angle2, test_angle3)
+        raise Exception("Expected an exception from test_check_angles_neg")
+    except AssertionError as e:
+        assert str(e) == "Sum of given angles not equal to 180"
+
+
 
