@@ -9,14 +9,13 @@ class Car(object):
         assert type(model) in (str, int) and type(color) == str and type(mpg) == int, \
             "Invalid enter data type"
         # assert self.display_car()
-        assert self.drive_car()
+        # assert self.drive_car()
 
     def display_car(self):
         return "This is a %s %s with %s MPG." % (self.model, self.color, self.mpg)
 
     def drive_car(self):
         self.condition = "used"
-        assert type(self.condition) == str, "Invalid entering data type"
         return self.condition
 
 
@@ -35,6 +34,7 @@ class Point3D(object):
         self.x = x
         self.y = y
         self.z = z
+        assert type(x) == type(y) == type(z) == int, "Invalid enter data type"
 
     def __repr__(self):
         return "(%d, %d, %d)" % (self.x, self.y, self.z)

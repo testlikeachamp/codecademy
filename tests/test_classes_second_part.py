@@ -1,11 +1,13 @@
 import pytest
 
 from codecademy.classes_second_part import Car
+from codecademy.classes_second_part import ElectricCar
+from codecademy.classes_second_part import Point3D
 
 test_model = 'bmw'
 test_color = 'Green'
 test_mpg = 100
-test_condition = "used"
+test_battery_type = "li"
 
 
 def test_display_car():
@@ -19,15 +21,23 @@ def test_display_car():
 
 
 def test_drive_car():
+    test_condition = "used"
     my_car = Car(test_model, test_color, test_mpg)
     assert my_car.drive_car() == test_condition
 
 
-@pytest.mark.parametrize("input_val", [-1, 0, None, False, True])
-def test_drive_car_neg(input_val):
+def test_drive_electric_car():
+    test_condition = "like new"
+    my_car = ElectricCar(test_model, test_color, test_mpg, test_battery_type)
+    assert my_car.drive_car() == test_condition
 
-    try:
-        my_car = Car(test_model, test_color, test_mpg)
-        raise Exception("Expected an exception test_drive_car_neg")
-    except AssertionError as e:
-        assert str(e) == "Invalid entering data type"
+x = 1
+y = 2
+z = 3
+
+
+def test_point():
+    points = Point3D(x, y, z)
+    assert eval(points.__repr__()) == (1, 2, 3)
+
+
