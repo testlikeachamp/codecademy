@@ -1,8 +1,6 @@
 import pytest
 
-from codecademy.classes_second_part import Car
-from codecademy.classes_second_part import ElectricCar
-from codecademy.classes_second_part import Point3D
+from codecademy.classes_second_part import Car, ElectricCar, Point3D
 
 test_model = 'bmw'
 test_color = 'Green'
@@ -24,6 +22,7 @@ def test_drive_car():
     test_condition = "used"
     my_car = Car(test_model, test_color, test_mpg)
     assert my_car.drive_car() == test_condition
+    assert my_car.condition == test_condition
 
 
 def test_drive_electric_car():
@@ -31,13 +30,43 @@ def test_drive_electric_car():
     my_car = ElectricCar(test_model, test_color, test_mpg, test_battery_type)
     assert my_car.drive_car() == test_condition
 
-x = 1
-y = 2
-z = 3
 
-
-def test_point():
+@pytest.mark.parametrize("x, y, z,expected", [
+    (0, 0, 0, (0, 0, 0)),
+    (0, 1, 1, (0, 1, 1)),
+    (1, 1, 1, (1, 1, 1)),
+    (-1, -1, 0, (-1, -1, 0)),
+    (123, 222, 999, (123, 222, 999)),
+])
+def test_get_class_average(x, y, z, expected):
     points = Point3D(x, y, z)
-    assert eval(points.__repr__()) == (1, 2, 3)
+    assert eval(str(points)) == expected
 
 
+@pytest.mark.parametrize("x", [
+    None,
+    True,
+    False,
+    "",
+    "a"
+])
+@pytest.mark.parametrize("y", [
+    None,
+    True,
+    False,
+    "",
+    "a"
+])
+@pytest.mark.parametrize("z", [
+    None,
+    True,
+    False,
+    "",
+    "a"
+])
+def test_get_class_average_neg(x, y, z):
+    try:
+        Point3D(x, y, z)
+        raise Exception("Expected an exception from test_get_class_average_neg")
+    except AssertionError as e:
+        assert str(e) == "Invalid enter data type"
