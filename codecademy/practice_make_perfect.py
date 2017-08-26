@@ -210,9 +210,6 @@ removes elements of the list that are the same."""
             print(number)
             i += 1
     if len(newest_list) == 0:
-        newest_list = numbers
-        print('if')
+        return numbers
     else:
-        newest_list = duplicates
-        print('else')
-    return newest_list
+        return duplicates
