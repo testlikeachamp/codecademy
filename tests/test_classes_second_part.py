@@ -29,18 +29,19 @@ def test_drive_electric_car():
     test_condition = "like new"
     my_car = ElectricCar(test_model, test_color, test_mpg, test_battery_type)
     assert my_car.drive_car() == test_condition
+    assert my_car.condition == test_condition
 
 
-@pytest.mark.parametrize("x, y, z,expected", [
-    (0, 0, 0, (0, 0, 0)),
-    (0, 1, 1, (0, 1, 1)),
-    (1, 1, 1, (1, 1, 1)),
-    (-1, -1, 0, (-1, -1, 0)),
-    (123, 222, 999, (123, 222, 999)),
+@pytest.mark.parametrize("x, y, z", [
+    (0, 0, 0),
+    (0, 1, 1),
+    (1, 1, 1),
+    (-1, -1, 0),
+    (123, 222, 999),
 ])
-def test_get_class_average(x, y, z, expected):
+def test_get_class_average(x, y, z):
     points = Point3D(x, y, z)
-    assert eval(str(points)) == expected
+    assert eval(str(points)) == (x, y, z)
 
 
 @pytest.mark.parametrize("x", [
