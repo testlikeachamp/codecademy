@@ -1,5 +1,4 @@
 import sys
-import math
 
 if sys.version_info > (3,):
     long = int
@@ -169,12 +168,11 @@ def censor(text, word):
 It should return the text with the word you chose replaced with asterisks (***)."""
     assert isinstance(text, str) and isinstance(word, str), "Passed the wrong data type"
     text_list = text.split()
+    print(text_list)
     result = " "
     for i, w in enumerate(text_list):
         if w == word:
             text_list[i] = "*" * len(word)
-        else:
-            continue
     result = result.join(text_list)
     return result
 
@@ -190,8 +188,6 @@ removes all odd numbers in the list, and returns the result. """
         assert isinstance(number, int), "Passed the wrong data type - wrong element inside list"
         if (number % 2) == 0:
             even_list.append(number)
-        else:
-            continue
     return even_list
 
 
@@ -213,8 +209,10 @@ removes elements of the list that are the same."""
             newest_list.append(number)
             print(number)
             i += 1
-    if newest_list == []:
+    if len(newest_list) == 0:
         newest_list = numbers
+        print('if')
     else:
         newest_list = duplicates
+        print('else')
     return newest_list
