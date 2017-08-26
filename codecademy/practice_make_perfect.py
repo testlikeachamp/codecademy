@@ -197,19 +197,13 @@ def remove_duplicates(numbers):
     """a function remove_duplicates that takes in a list and
 removes elements of the list that are the same."""
     assert isinstance(numbers, list), "Passed the wrong data type"
-    newest_list = []
     duplicates = []
     i = 0
     for number in numbers:
         assert isinstance(number, int), "Passed the wrong data type - wrong element inside list"
-        if numbers[i] not in numbers[(i+1):len(numbers)]:
+        if number not in numbers[(i+1):len(numbers)]:
             duplicates.append(number)
             i += 1
         else:
-            newest_list.append(number)
-            print(number)
             i += 1
-    if len(newest_list) == 0:
-        return numbers
-    else:
-        return duplicates
+    return duplicates
