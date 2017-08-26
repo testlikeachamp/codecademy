@@ -220,7 +220,6 @@ def test_median_negative(input_neg):
 
 
 @pytest.mark.parametrize("test_input,expected", [
-    (-sys.maxsize-2, False),
     (-sys.maxsize-1,  True),
     (-sys.maxsize,  False),
     (-3037000499, False),
@@ -238,7 +237,6 @@ def test_median_negative(input_neg):
     (3037000499, False),
     (sys.maxsize-1, True),
     (sys.maxsize, False),
-    (sys.maxsize+1, True),
 ])
 def test_is_even(test_input, expected):
     assert is_even(test_input) == expected
@@ -271,7 +269,6 @@ def test_is_even_negative(input_negative):
     (123456, 21),
     (sys.maxsize-1, 87),
     (sys.maxsize, 88),
-    (sys.maxsize+1, 89),
 ])
 def test_digit_sum(test_input, expected):
     assert digit_sum(test_input) == expected
@@ -299,7 +296,6 @@ def test_digit_sum_negative(input_negative):
 
 
 @pytest.mark.parametrize("test_input,expected", [
-    (-sys.maxsize - 2, False),
     (-sys.maxsize - 1, False),
     (-sys.maxsize, False),
     (-3037000499, False),
@@ -318,7 +314,6 @@ def test_digit_sum_negative(input_negative):
     (227, True),
     (sys.maxsize - 1, False),
     (sys.maxsize, False),
-    (sys.maxsize + 1, False),
 ])
 def test_is_prime(test_input, expected):
     assert is_prime(test_input) == expected
