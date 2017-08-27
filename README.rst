@@ -1,5 +1,5 @@
 codecademy
-----------
+==========
 
 .. image:: https://travis-ci.org/testlikeachamp/codecademy.svg?branch=master
     :target: https://travis-ci.org/testlikeachamp/codecademy
@@ -10,20 +10,25 @@ codecademy
 Functions from codecademy.com/learn/python and tests for them
 
 
-## Run all tests
+Run all tests
+-------------
 
-```pytest tests```
-
-
-## Run tests from a single file
-
-```pytest tests/test_functions.py```
+``pytest tests``
 
 
-## Run a single test:
+Run tests from a single file
+----------------------------
 
-```pytest tests/test_functions.py::test_tax```
+``pytest tests/test_functions.py``
 
 
-## Code coverage
+Run a single test
+-----------------
+
+``pytest tests/test_functions.py::test_tax``
+
+
+Code coverage
+-------------
+
 Report is produced automatically and saved into `htmlcov/index.html`
