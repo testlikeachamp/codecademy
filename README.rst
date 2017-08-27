@@ -27,4 +27,4 @@ Run a single test
 
 Code coverage
 -------------
-Report is produced automatically and saved into `htmlcov/index.html`
+Report is produced automatically and saved into *htmlcov/index.html*
