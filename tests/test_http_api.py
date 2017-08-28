@@ -9,3 +9,17 @@ def test_httpbin_post():
     assert r.status_code == 200, r.text
     data = r.json()
     assert data['json'] == mydata
+
+
+def test_httpbin_ip():
+     r = requests.get(url=base_url+'ip')
+     assert r.status_code == 200, r.text
+     data = r.json()
+     assert data == {u'origin': my_router_ip}
+     #print(data)
+     if r.elapsed.total_seconds() < 0.500:
+         print ('Время ответа менее полсекунды = ', r.elapsed.total_seconds(), "\n")
+
+     else:
+         print('Долгий ответ = ', r.elapsed.total_seconds(), "\n")
+
