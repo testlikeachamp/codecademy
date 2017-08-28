@@ -60,3 +60,14 @@ def get_class_average(students):
     return average(result)
 
 
+# 5. It's Okay to be Average
+
+
+def average_5(numbers):
+    """Write a function average that takes a list of numbers and returns the average"""
+    assert type(numbers) == list, "{} error type, please enter list of numbers".format(numbers)
+    for num in numbers:
+        if type(num) != (int or float):
+            raise TypeError("{} some of element inside numbers is wrong (not int or float)".format(numbers))
+    total = float(sum(numbers))
+    return round(total/len(numbers), 2)
