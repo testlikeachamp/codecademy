@@ -6,6 +6,7 @@ from codecademy.introduction_to_classes import Fruit
 from codecademy.introduction_to_classes import ReturningCustomer
 from codecademy.introduction_to_classes import Triangle
 
+
 test_name = 'Apple'
 test_color = 'Green'
 test_flavor = 'Sweet'
@@ -58,9 +59,18 @@ def test_Fruit_bite_it_negative(input_neg):
 ])
 def test_is_edible(input_val, expected):
 
-    orange = Fruit(test_name, test_color, test_flavor, input_val, test_weight)
-    assert orange.is_edible(input_val) == expected
+    orange = Fruit(test_name, test_color, test_flavor, poisonous=input_val, weight=test_weight)
+    assert orange.is_edible() == expected
 
+@pytest.mark.parametrize("color_val,expected", [
+    ("yellow", "yellow"),
+    ("green", "green"),
+    ("red", "red")
+    ])
+def test_get_color(color_val, expected):
+    #test_color = yellow
+    Lemon = Fruit(test_name, color_val, test_flavor, test_poisonous, test_weight)
+    assert Lemon.get_color() == expected
 
 def test_description():
     test_animal_name = "Cat"
@@ -246,6 +256,3 @@ def test_check_angles_sum_neg(test_angle1, test_angle2, test_angle3):
         raise Exception("Expected an exception from test_check_angles_neg")
     except AssertionError as e:
         assert str(e) == "Sum of given angles not equal to 180"
-
-
-

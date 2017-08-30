@@ -4,18 +4,21 @@ class Fruit(object):
         self.name = name
         self.color = color
         self.flavor = flavor
+        assert type(poisonous) == bool, "Error type, please enter boolean for poisonous"
         self.poisonous = poisonous
         self.weight = weight
 
     def description(self):
         return "I'm a %s %s and I taste %s." % (self.color, self.name, self.flavor)
 
-    def is_edible(self, type_posinous):
-        assert type(type_posinous) == bool, "Error type, please enter boolean"
+    def is_edible(self):
         if not self.poisonous:
             return True
         else:
             return False
+
+    def get_color(self):
+        return self.color
 
     def bite_it(self, bite_size):
         assert type(bite_size) in (int, float) and bite_size > 0, "{} error type, please enter integer".format(bite_size)
@@ -57,7 +60,6 @@ class ReturningCustomer(Customer):
 
 class Triangle(object):
     def __init__(self, angle1, angle2, angle3):
-
         self.angle1 = angle1
         self.angle2 = angle2
         self.angle3 = angle3
@@ -66,10 +68,6 @@ class Triangle(object):
             assert type(a) in (int, float), "Error type, please enter a valid value"
             assert 0 < a < 180, "Angles is not in the range (0, 180)"
         assert self.check_angles(), "Sum of given angles not equal to 180"
-
-
-
-    number_of_sides = 3
 
     def check_angles(self):
         if (self.angle1+self.angle2+self.angle3) == 180:

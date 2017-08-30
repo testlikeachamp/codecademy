@@ -26,6 +26,9 @@ def test_compute_bill(test_input, expected):
 def test_compute_bill_negative(test_input):
     try:
         compute_bill(test_input)
+        # assert False, "Expected an exception from compute_bill()"  # not recommended, since AssertionError will be thrown
+        # raise Exception("Expected an exception from compute_bill()")  # OK to use
+        pytest.fail("Expected an exception from compute_bill()")  # best way
         assert False, "Expected an exception from compute_bill()"
     except AssertionError as e:
         assert str(e) == str(test_input) + " error enter type"
