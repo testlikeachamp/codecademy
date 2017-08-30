@@ -1,14 +1,14 @@
 import pytest
 
 from codecademy.introduction_to_classes import Animal
+from codecademy.introduction_to_classes import Animal6
 from codecademy.introduction_to_classes import Customer
+from codecademy.introduction_to_classes import Employee14, PartTimeEmployee14
 from codecademy.introduction_to_classes import Fruit
 from codecademy.introduction_to_classes import ReturningCustomer
-from codecademy.introduction_to_classes import Triangle
-from codecademy.introduction_to_classes import Animal6
-from codecademy.introduction_to_classes import ShoppingCart10
 from codecademy.introduction_to_classes import Shape12, Triangle12, Equilateral12
-from codecademy.introduction_to_classes import Employee14, PartTimeEmployee14
+from codecademy.introduction_to_classes import ShoppingCart10
+from codecademy.introduction_to_classes import Triangle
 
 
 test_name = 'Apple'
@@ -262,38 +262,16 @@ def test_Animal6_description():
     assert animal.description() == "{} + " " + {}".format(test_name6, test_age6)
 
 
-@pytest.mark.parametrize("test_animal_name_negative", [
-    None,
-    True,
-    False,
-    0,
-    "Joffrey"
-])
-@pytest.mark.parametrize("test_animal_age_negative", [
-    None,
-    True,
-    False,
-    0,
-    -1,
-    "",
-    6
-])
-@pytest.mark.parametrize("test_animal_is_hungry", [
-    None,
-    "Yes",
-    "No",
-    0,
-    -1,
-    ""
-])
+@pytest.mark.parametrize("test_animal_name_negative", [None, True, False, 0, "Joffrey"])
+@pytest.mark.parametrize("test_animal_age_negative", [None, True, False, 0, -1, "", 6])
+@pytest.mark.parametrize("test_animal_is_hungry", [None, "Yes", "No", 0, -1, ""])
 def test_Animal6_description_negative(test_animal_name_negative, test_animal_age_negative, test_animal_is_hungry):
     try:
         animal = Animal6(test_animal_name_negative, test_animal_age_negative, test_animal_is_hungry)
         animal.description()
         raise Exception("Expected an exception from test_description_negative")
     except AssertionError as e:
-        assert str(e) == "Error type, please enter a valid value age or name" \
-               or "Error type, please enter boolean"
+        assert str(e) == "Error type, please enter a valid value age or name" or "Error type, please enter boolean"
 
 
 def test_shopping_cart10():
@@ -313,21 +291,8 @@ def test_add_item10(test_input_product, test_input_price, expected):
     assert nick.add_item10(test_input_product, test_input_price) == expected
 
 
-@pytest.mark.parametrize("test_product_negative", [
-    None,
-    True,
-    False,
-    0,
-    -1,
-    ""
-])
-@pytest.mark.parametrize("test_price_negative", [
-    None,
-    True,
-    False,
-    0,
-    "A"
-])
+@pytest.mark.parametrize("test_product_negative", [None, True, False, 0, -1, ""])
+@pytest.mark.parametrize("test_price_negative", [None, True, False, 0, "A"])
 def test_add_item10_negative(test_product_negative, test_price_negative):
     try:
         nick = ShoppingCart10('Nick')
@@ -356,13 +321,7 @@ def test_remove_item10_2(test_input_product, expected):
     assert nick.remove_item10(test_input_product) == expected
 
 
-@pytest.mark.parametrize("test_product_negative", [
-    None,
-    True,
-    False,
-    0,
-    -1
-])
+@pytest.mark.parametrize("test_product_negative", [None, True, False, 0, -1])
 def test_remove_item10_negative(test_product_negative):
     try:
         nick = ShoppingCart10('Nick')
@@ -390,37 +349,15 @@ def test_Triangle12(test_angle1, test_angle2, test_angle3):
     assert my_figure.angle3 == test_angle3
 
 
-@pytest.mark.parametrize("test_angle1", [
-    False,
-    -1,
-    180,
-    0,
-    True,
-    None,
-])
-@pytest.mark.parametrize("test_angle2", [
-    False,
-    -1,
-    180,
-    0,
-    True,
-    None,
-])
-@pytest.mark.parametrize("test_angle3", [
-    False,
-    -1,
-    180,
-    0,
-    True,
-    None,
-])
+@pytest.mark.parametrize("test_angle1", [False, -1, 180, 0, True, None])
+@pytest.mark.parametrize("test_angle2", [False, -1, 180, 0, True, None])
+@pytest.mark.parametrize("test_angle3", [False, -1, 180, 0, True, None])
 def test_Triangle12_negative(test_angle1, test_angle2, test_angle3):
     try:
         Triangle12(test_angle1, test_angle2, test_angle3)
         raise Exception("Expected an exception from Triangle12")
     except AssertionError as e:
-        assert str(e) == "Error type, please enter a valid value" \
-               or "Angles is not in the range (0, 180)"
+        assert str(e) == "Error type, please enter a valid value" or "Angles is not in the range (0, 180)"
 
 
 @pytest.mark.parametrize("test_angle1, test_angle2, test_angle3, expected", [
@@ -436,31 +373,9 @@ def test_check_angles12(test_angle1, test_angle2, test_angle3, expected):
         assert str(e) == "Sum of given angles not equal to 180"
 
 
-
-@pytest.mark.parametrize("test_angle1", [
-    1,
-    60,
-    179,
-    1,
-    20,
-    55,
-])
-@pytest.mark.parametrize("test_angle2", [
-    1,
-    61,
-    179,
-    1,
-    20,
-    55,
-])
-@pytest.mark.parametrize("test_angle3", [
-    179,
-    61,
-    179,
-    1,
-    20,
-    55,
-])
+@pytest.mark.parametrize("test_angle1", [1, 60, 179, 1, 20, 55])
+@pytest.mark.parametrize("test_angle2", [1, 61, 179, 1, 20, 55])
+@pytest.mark.parametrize("test_angle3", [179, 61, 179, 1, 20, 55])
 def test_check_angles12_sum_neg(test_angle1, test_angle2, test_angle3):
     try:
         Triangle12(test_angle1, test_angle2, test_angle3)
@@ -477,14 +392,7 @@ def test_Equilateral12():
     assert my_figure.angle3 == test_angle
 
 
-@pytest.mark.parametrize("test_name", [
-    "David",
-    -1,
-    180,
-    0,
-    True,
-    None,
-])
+@pytest.mark.parametrize("test_name", ["David", -1, 180, 0, True, None])
 def test_Employee14(test_name):
     try:
         david = Employee14(test_name)
@@ -503,13 +411,7 @@ def test_calculate_wage14(test_hours, expected):
     assert david.calculate_wage14(test_hours) == expected
 
 
-@pytest.mark.parametrize("test_hours_negative", [
-    "David",
-    -1,
-    0,
-    True,
-    None,
-])
+@pytest.mark.parametrize("test_hours_negative", ["David", -1, 0, True, None])
 def test_calculate_wage14_negative(test_hours_negative):
     try:
         david = Employee14('David')
@@ -529,13 +431,7 @@ def test_calculate_wage14_pt(test_hours, expected):
     assert david.calculate_wage14(test_hours) == expected
 
 
-@pytest.mark.parametrize("test_hours_negative", [
-    "David",
-    -1,
-    0,
-    True,
-    None,
-])
+@pytest.mark.parametrize("test_hours_negative", ["David", -1, 0, True, None])
 def test_calculate_wage14_pt_negative(test_hours_negative):
     try:
         david = PartTimeEmployee14('David')
@@ -555,13 +451,7 @@ def test_full_time_wage14(test_hours, expected):
     assert david.full_time_wage14(test_hours) == expected
 
 
-@pytest.mark.parametrize("test_hours_negative", [
-    "David",
-    -1,
-    0,
-    True,
-    None,
-])
+@pytest.mark.parametrize("test_hours_negative", ["David", -1, 0, True, None])
 def test_full_time_wage14_negative(test_hours_negative):
     try:
         david = PartTimeEmployee14('David')

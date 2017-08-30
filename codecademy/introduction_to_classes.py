@@ -10,8 +10,8 @@ class Fruit(object):
     def description(self):
         return "I'm a %s %s and I taste %s." % (self.color, self.name, self.flavor)
 
-    def is_edible(self, type_poisinous):
-        assert type(type_poisinous) == bool, "Error type, please enter boolean"
+    def is_edible(self, type_poisonous):
+        assert type(type_poisonous) == bool, "Error type, please enter boolean"
         if not self.poisonous:
             return True
         else:
@@ -32,8 +32,7 @@ class Animal(object):
     health = "good"
 
     def __init__(self, name, age):
-        assert type(name) == str and type(age) in (int, float) and age > 0,\
-            "Error type, please enter a valid value age or name"
+        assert type(name) == str and type(age) in (int, float) and age > 0,"Error type, please enter a valid value age or name"
         self.name = name
         self.age = age
 
@@ -72,10 +71,7 @@ class Triangle(object):
     number_of_sides = 3
 
     def check_angles(self):
-        if (self.angle1+self.angle2+self.angle3) == 180:
-            return True
-        else:
-            return False
+        return self.angle1 + self.angle2 + self.angle3 == 180
 
 
 # nicolas13sochi part
@@ -88,8 +84,7 @@ class Animal6(object):
     is_alive = True
 
     def __init__(self, name, age, is_hungry):
-        assert type(name) == str and type(age) in (int, float) and age > 0,\
-            "Error type, please enter a valid value age or name"
+        assert type(name) == str and type(age) in (int, float) and age > 0, "Error type, please enter a valid value age or name"
         assert type(is_hungry) == bool, "Error type, please enter boolean"
         self.name = name
         self.age = age
@@ -153,10 +148,7 @@ class Triangle12(Shape12):
         assert self.check_angles12(), "Sum of given angles not equal to 180"
 
     def check_angles12(self):
-        if (self.angle1 + self.angle2 + self.angle3) == 180:
-            return True
-        else:
-            return False
+        return self.angle1 + self.angle2 + self.angle3 == 180
 
 
 class Equilateral12(Triangle12):
