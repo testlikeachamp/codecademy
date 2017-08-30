@@ -18,8 +18,8 @@ def test_httpbin_ip():
      #assert data == {u'origin': my_router_ip}
      #print(data)
      if r.elapsed.total_seconds() < 0.500:
-         print ('Время ответа менее полсекунды = ', r.elapsed.total_seconds(), "\n")
+         print ('Fast server response = ', r.elapsed.total_seconds(), "\n")
 
      else:
-         print('Долгий ответ = ', r.elapsed.total_seconds(), "\n")
+         print('Long server response = ', r.elapsed.total_seconds(), "\n")
 
