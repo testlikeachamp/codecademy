@@ -1,14 +1,7 @@
 import pytest
 
-from codecademy.introduction_to_classes import Animal
-from codecademy.introduction_to_classes import Animal6
-from codecademy.introduction_to_classes import Customer
-from codecademy.introduction_to_classes import Employee14, PartTimeEmployee14
-from codecademy.introduction_to_classes import Fruit
-from codecademy.introduction_to_classes import ReturningCustomer
-from codecademy.introduction_to_classes import Shape12, Triangle12, Equilateral12
-from codecademy.introduction_to_classes import ShoppingCart10
-from codecademy.introduction_to_classes import Triangle
+from codecademy.introduction_to_classes import Animal, Animal6, Customer, Employee14, Equilateral12, Fruit,\
+    PartTimeEmployee14, ReturningCustomer, Shape12, ShoppingCart10, Triangle, Triangle12
 
 
 test_name = 'Apple'
