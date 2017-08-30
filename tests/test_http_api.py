@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import requests
 
 #my_router_ip = "95.174.113.178"
@@ -18,8 +21,8 @@ def test_httpbin_ip():
      #assert data == {u'origin': my_router_ip}
      #print(data)
      if r.elapsed.total_seconds() < 0.500:
-         print ('Fast server response = ', r.elapsed.total_seconds(), "\n")
+         print ('Быстрый ответ сервера = ', r.elapsed.total_seconds(), "\n")
 
      else:
-         print('Long server response = ', r.elapsed.total_seconds(), "\n")
+         print('Долгий ответ сервера :( = ', r.elapsed.total_seconds(), "\n")
 
