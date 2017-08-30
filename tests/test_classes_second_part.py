@@ -1,6 +1,6 @@
 import pytest
 
-from codecademy.classes_second_part import Car, ElectricCar, Point3D
+from codecademy.classes_second_part import Car, Car9, ElectricCar, ElectricCar9, Point3D
 
 test_model = 'bmw'
 test_color = 'Green'
@@ -71,3 +71,35 @@ def test_get_class_average_neg(x, y, z):
         raise Exception("Expected an exception from test_get_class_average_neg")
     except AssertionError as e:
         assert str(e) == "Invalid enter data type"
+
+# nicolas13sochi part
+
+test_model9 = 'Toyota RAV4 EV'
+test_color9 = 'White'
+test_mpg9 = 100
+test_battery_type9 = "nickel-metal hydride "
+
+
+def test_display_car9():
+    my_car = Car9(test_model9, test_color9, test_mpg9)
+
+    assert my_car.model == test_model9
+    assert my_car.color == test_color9
+    assert my_car.mpg == test_mpg9
+
+    assert my_car.display_car9() == "This is a {} {} with {} MPG.".format(test_color9, test_model9, str(test_mpg9))
+
+
+def test_drive_car9():
+    test_condition9 = "used"
+    my_car = Car9(test_model9, test_color9, test_mpg9)
+    assert my_car.drive_car9() == test_condition9
+    assert my_car.condition == test_condition9
+
+
+def test_ElectricCar9():
+    my_car = ElectricCar9(test_model9, test_color9, test_mpg9, test_battery_type9)
+    assert my_car.model == test_model9
+    assert my_car.color == test_color9
+    assert my_car.mpg == test_mpg9
+    assert my_car.battery_type == test_battery_type9

@@ -6,8 +6,7 @@ class Car(object):
         self.color = color
         self.mpg = mpg
 
-        assert type(model) in (str, int) and type(color) == str and type(mpg) == int, \
-            "Invalid enter data type"
+        assert type(model) in (str, int) and type(color) == str and type(mpg) == int, "Invalid enter data type"
         # assert self.display_car()
         # assert self.drive_car()
 
@@ -39,3 +38,29 @@ class Point3D(object):
     def __repr__(self):
         return "(%d, %d, %d)" % (self.x, self.y, self.z)
 
+# nicolas13sochi part
+
+
+class Car9(object):
+    condition = "new"
+
+    def __init__(self, model, color, mpg):
+        self.model = model
+        self.color = color
+        self.mpg = mpg
+        assert type(model) in (str, int) and type(color) == str and type(mpg) == int, "Invalid enter data type"
+
+    def display_car9(self):
+        return "This is a {} {} with {} MPG.".format(self.color, self.model, str(self.mpg))
+
+    def drive_car9(self):
+        self.condition = "used"
+        return self.condition
+
+
+class ElectricCar9(Car9):
+
+    def __init__(self, model, color, mpg, battery_type):
+        super(ElectricCar9, self).__init__(model, color, mpg)
+        self.battery_type = battery_type
+        assert type(battery_type) == str, "Invalid enter data type"
