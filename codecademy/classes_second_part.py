@@ -42,12 +42,12 @@ class Point3D(object):
 
 
 class Car9(object):
-    condition = "new"
 
     def __init__(self, model, color, mpg):
         self.model = model
         self.color = color
         self.mpg = mpg
+        self.condition = "new"
         assert type(model) in (str, int) and type(color) == str and type(mpg) == int, "Invalid enter data type"
 
     def display_car9(self):
