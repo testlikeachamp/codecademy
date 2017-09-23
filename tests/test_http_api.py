@@ -31,9 +31,9 @@ def test_httpbin_user_agent():
     r = requests.get(base_url + 'user-agent')
     assert r.status_code == 200, r.text
     assert r.reason == "OK", r.text
+    assert r.json()['user-agent'] == 'python-requests/' + requests.__version__
     print(r.elapsed.total_seconds())
     #data = r.json()
-    assert r.json()['user-agent'] == 'python-requests/' + requests.__version__
     #assert len(r.json())
     #print(data)
     #print(r.reason)
