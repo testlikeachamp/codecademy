@@ -68,7 +68,6 @@ def test_is_edible(input_val, expected):
     ("red", "red")
     ])
 def test_get_color(color_val, expected):
-    #test_color = yellow
     Lemon = Fruit(test_name, color_val, test_flavor, test_poisonous, test_weight)
     assert Lemon.get_color() == expected
 

@@ -5,6 +5,7 @@ import requests
 
 #my_router_ip = "95.174.113.178"
 base_url = 'http://localhost:8000/'
+#base_url = 'http://httpbin.org/'
 
 def test_httpbin_post():
     mydata = [{'name': 'Artem'}, 'Hi']
