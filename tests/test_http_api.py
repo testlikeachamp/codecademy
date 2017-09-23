@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import requests
 
 #my_router_ip = "95.174.113.178"
-base_url = 'http://httpbin.org/'
+base_url = 'http://localhost:8000/'
 
 def test_httpbin_post():
     mydata = [{'name': 'Artem'}, 'Hi']
@@ -26,3 +26,14 @@ def test_httpbin_ip():
      else:
          print('Долгий ответ сервера :( = ', r.elapsed.total_seconds(), "\n")
 
+
+def test_httpbin_user_agent():
+    r = requests.get(base_url + 'user-agent')
+    assert r.status_code == 200, r.text
+    assert r.reason == "OK", r.text
+    print(r.elapsed.total_seconds())
+    #data = r.json()
+    assert r.json()['user-agent'] == 'python-requests/' + requests.__version__
+    #assert len(r.json())
+    #print(data)
+    #print(r.reason)
