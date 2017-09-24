@@ -1,10 +1,6 @@
 import pytest
 
-from codecademy.taking_a_vacation import hotel_cost
-from codecademy.taking_a_vacation import plane_ride_cost
-from codecademy.taking_a_vacation import rental_car_cost
-from codecademy.taking_a_vacation import trip_cost
-from codecademy.taking_a_vacation import trip_cost_only
+from codecademy.taking_a_vacation import hotel_cost, plane_ride_cost, rental_car_cost, trip_cost, trip_cost_only
 
 
 @pytest.mark.parametrize("input_nights,expected", [
