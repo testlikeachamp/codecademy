@@ -2,11 +2,7 @@ import sys
 
 import pytest
 
-from codecademy.student_becomes_the_teacher import average
-from codecademy.student_becomes_the_teacher import get_average
-from codecademy.student_becomes_the_teacher import get_letter_grade
-from codecademy.student_becomes_the_teacher import get_class_average
-from codecademy.student_becomes_the_teacher import average_5
+from codecademy.student_becomes_the_teacher import average, get_average, get_letter_grade, get_class_average, average_5
 
 
 @pytest.mark.parametrize("test_input,expected", [
