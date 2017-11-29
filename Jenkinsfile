@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version &&\
+                sh 'whoami &&\
+                    sudo su &&\
+                    python --version &&\
                     pip install -r requirements.txt &&\
                     py.test -lsvvv --cov=codecademy --cov-branch tests'
             }
