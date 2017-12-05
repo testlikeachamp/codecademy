@@ -10,7 +10,7 @@ pipeline {
                 sh 'whoami &&\
                     python --version &&\
                     pip install -r requirements.txt &&\
-                    py.test -lsvvv --cov=codecademy --cov-branch tests'
+                    pytest tests'
             }
         }
     }
