@@ -19,6 +19,12 @@ pipeline {
             archive '**/report.html'
             archive '**/report.xml'
             junit '**/report.xml'
+            publishHTML target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportFiles: '**/report.html',
+                reportName: 'HTML Report'
         }
     }
 }
