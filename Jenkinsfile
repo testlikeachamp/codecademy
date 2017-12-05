@@ -25,8 +25,7 @@ pipeline {
                 keepAll: true,
                 reportFiles: '**/report.html',
                 reportName: 'HTML Report'
+            ]
         }
     }
 }
-
-
