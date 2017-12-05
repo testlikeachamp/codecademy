@@ -14,4 +14,13 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            archive '**/report.html'
+            archive '**/report.xml'
+            junit '**/report.xml'
+        }
+    }
 }
+
+
