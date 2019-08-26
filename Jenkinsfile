@@ -16,8 +16,8 @@ pipeline {
     }
     post {
         always {
-            archive '**/report.html'
-            archive '**/report.xml'
+            archiveArtifacts '**/report.html'
+            archiveArtifacts '**/report.xml'
             junit '**/report.xml'
             publishHTML target: [
                 allowMissing: false,
