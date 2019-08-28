@@ -7,13 +7,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'whoami &&\
-                    python --version &&\
-                    pip install -r requirements.txt &&\
-                    pytest tests'
+                sh 'whoami'
+                sh 'python --version'
+                sh 'pip install -r requirements.txt'
+                sh 'pytest tests'
             }
         }
     }
+
     post {
         always {
             archiveArtifacts '**/report.html'
