@@ -46,6 +46,10 @@ coverage.xml
 *.cover
 .hypothesis/
 
+# Test reports
+report.xml
+report.html
+
 # Translations
 *.mo
 *.pot
@@ -103,5 +107,5 @@ ENV/
 # PyCharm
 .idea
 
-# macOS internal files
+# macOS files
 .DS_Store
